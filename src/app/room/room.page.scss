@@ -1,0 +1,19 @@
+:host{
+    ion-icon{
+        font-size: 25px;
+    }
+
+    .sc-ion-buttons-md-h{
+        position: absolute;
+        right: 5px;
+        top: 15px;
+        button{
+            background: transparent;
+        }
+    }
+
+    .chat-icon{
+        right: 0;
+        position: absolute;
+    }
+}

@@ -1,0 +1,20 @@
+.round {
+    width: 90%;
+    vertical-align: middle;
+    padding: 10px;
+    border-radius: 20px;
+    background: #61dc65;
+    box-shadow: 0px 1px 2px 0px #000;
+    margin: 0 10px;
+    color: #fff;
+    font-weight: bold;
+    font-size: large;
+
+    :focus{
+        background: #4cd451;
+    }
+
+    :hover{
+        background: #4cd451;
+    }
+  }
