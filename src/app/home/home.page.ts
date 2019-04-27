@@ -24,6 +24,7 @@ export class HomePage implements OnInit {
   respData: any;
   isProcessOver: boolean;
   isFakeFound: boolean;
+  fakePoints: number;
   imgUrlToProcess: string;
   textUrlToProcess: string;
   ngOnInit(): void {
@@ -63,6 +64,7 @@ export class HomePage implements OnInit {
     this.textUrlToProcess = this.data.message;
     this.apiService.processText(this.textUrlToProcess).subscribe((res) => {
       this.isFakeFound = res.isFake;
+      this.fakePoints = res.fakePoints;
     // tslint:disable-next-line: no-debugger
       debugger;
       console.log(this.isFakeFound);
@@ -72,7 +74,7 @@ export class HomePage implements OnInit {
       type: this.data.type,
       user: this.data.nickname,
       message: this.textUrlToProcess, //this.data.message,
-      audit: this.isFakeFound ? 1 : 0,
+      audit: this.fakePoints,
       sendDate: Date()
       });
     });
@@ -110,6 +112,7 @@ export class HomePage implements OnInit {
         const newData = firebase.database().ref('chatrooms/' + this.roomkey + '/chats').push();
         this.apiService.processImage(uploadTask.snapshot.downloadURL).subscribe((res) => {
           this.isFakeFound = res.isFake;
+          this.fakePoints = res.fakePoints;
       // tslint:disable-next-line: no-debugger
           debugger;
           console.log(this.isFakeFound);
@@ -120,7 +123,7 @@ export class HomePage implements OnInit {
           user: this.data.nickname,
           message: this.data.message,
           imgUrl: uploadTask.snapshot.downloadURL,
-          audit: this.isFakeFound ? 1 : 0,
+          audit: this.fakePoints,
           sendDate: Date()
         });
       });
